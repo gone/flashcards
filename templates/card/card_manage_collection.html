@@ -1,0 +1,15 @@
+{{card.question}}
+{{card.answer}}
+
+<form name="collections" method="post" action="submit/">{% csrf_token %}
+<ul>
+{% for collection in collections %}
+<input type="checkbox" name="{{collection.title}}" value="{{collection.title}}"{% if collection.has_card %} 
+checked
+{% endif %}/>
+{{collection.title}}
+<br/>
+{% endfor %}
+</ul>
+<input type="submit" value="submit"> 
+</form>

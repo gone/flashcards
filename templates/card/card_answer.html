@@ -1,0 +1,10 @@
+{% load times %}
+{{object.answer}}
+<br/>
+How sure were you of this?
+{% for i in 6|times %}
+<a href="{{i}}">{{i}}</a>  
+{% endfor %}
+
+
+
