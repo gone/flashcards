@@ -1,3 +1,18 @@
-{{ object.question }}
+{% load times %}
 
-<a href="answer"> answer </a>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li {% message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{{ card.question }}
+
+<form action="" method="post">{% csrf_token %}
+  {% for i in 6|times %}
+  <input type="submit" name="Submit" value="{{i}}">
+  {% endfor %}
+</form>
+

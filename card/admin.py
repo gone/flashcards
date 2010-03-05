@@ -4,6 +4,7 @@ from django.contrib import admin
 
 class CardAdmin(admin.ModelAdmin):
 	fieldsets = [
+		(None, {'fields':['title']}),
 		(None, {'fields':['question', 'answer']}),
 		(None, {'fields':['tgs']}),
 		('Date Information', {'fields':['pub_date'], 'classes' : ['collapse']}),

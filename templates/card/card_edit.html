@@ -1,11 +1,4 @@
-
-<form action="submit/" method="post"> {% csrf_token %}
-  Question:
-  <textarea cols=40 rows=6 name="question">{{object.question}}</textarea>
-  <br/>
-  Answer
-  <textarea cols=40 rows=6 name="answer">{{object.answer}}</textarea>
-  <br/>
-  <br/>
+<form action="" method="post"> {% csrf_token %}
+  {{ card.as_p }}
   <input type="submit">
 </form>
