@@ -1,8 +1,9 @@
-{{card.question}}<br/>
-{{card.answer}}<br/>
+{{card.question}}
+{{card.answer}}
 
-<form name="cards" method="post" action="">{% csrf_token %}
-{{ form.as_p }}
+<br/>
+<form name="collections" method="post" action="">{% csrf_token %}
+{{ collection.as_p }}
 <input type="submit" value="Submit"> 
 </form>
 

@@ -1,0 +1,12 @@
+<form action="" method="post"> {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit">
+</form>
+<br/>
+<br/>
+<br/>
+Remove this card
+<form action="/cards/remove/{{object.id}}" method="get">
+  <input type="submit" value="remove">
+</form>
+

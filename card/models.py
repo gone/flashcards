@@ -4,14 +4,14 @@ import tagging, tagging.fields
 
 # Create your models here.
 
-
 class Card(models.Model):
 	title = models.CharField(max_length=100)
 	question = models.TextField()
 	answer = models.TextField()
 	pub_date = models.DateTimeField('date published', default=datetime.now())
 	tgs = tagging.fields.TagField()
-	#something about who published it
+	def get_absolute_url(self):
+		return "/cards/%s/" % self.id
 	def __unicode__(self):
 		return self.title
 
@@ -24,6 +24,8 @@ class Collection(models.Model):
 		c = Collection.objects.get(id=self.id)
 		cards = c.cards.all()
 		return list(cards)
+	def get_absolute_url(self):
+		return "/collections/%s/" % self.id
 		
 # class CardSet(models.Model):
 # 	title = models.CharField(max_length=100)

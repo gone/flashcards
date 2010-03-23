@@ -13,20 +13,6 @@ from django.contrib import messages
 def start_quiz(request, set_id):
 	pass
 
-def quiz(request, card_id):
-	if not request.session['set']:
-		return HttpResponseRedirect(reverse('quiz_complete'))
-	card = get_object_or_404(Card, pk=card_id)
-	if request.method == "POST":
-		messages.success(request, "this is a test of the emergency broadcasting system")
-		how_sure = request.POST['Submit']
-		current_card = hand.pop()
-		update_hand(request.session['hand'], request.session['set'], how_sure, current_card)
-		card = request.session['hand'][0]
-	ctx = RequestContext(request, {"card":card})
-	return render_to_response("card/card_quiz.html", ctx)
-
-	
 def update_hand(current_hand, larger_set, confidence, current_item):
 	pass
 	# """updates current_hand after a confidence level is given
@@ -38,10 +24,9 @@ def update_hand(current_hand, larger_set, confidence, current_item):
 	# current_hand = current_hand[0:position] + [current_item] + current_hand[position:]
 	# return current_hand
 	
-def card_manage_collections(request, card_id):
-	collections = Collection.objects.all()
-	card = Card.objects.get(pk=card_id)
-	f = CollectionForm()
-	ctx = RequestContext(request, {'card':card, 'collection':f})
-	return render_to_response('card/card_manage_collection.html', ctx)
-
+# def manage_collections(request, card_id):
+# 	collections = Collection.objects.filter(cardsa)
+# 	card = Card.objects.get(pk=card_id)
+# 	frm = CardForm()
+# 	ctx = RequestContext(request, {'card':card, 'form':frm})
+# 	return render_to_response('card/card_manage_collection.html', ctx)
