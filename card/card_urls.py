@@ -1,6 +1,5 @@
 from django.conf.urls.defaults import *
 
-
 from models import Card, Collection
 
 collection_dict = {'queryset': Collection.objects.all()}
@@ -12,7 +11,7 @@ urlpatterns = patterns('',
                        (r'^edit/(?P<object_id>\d+)/$', 'django.views.generic.create_update.update_object', {"model": Card}), 
 					   (r'^remove/(?P<object_id>\d+)/$', 'django.views.generic.create_update.delete_object', {"model": Card,
 																											"post_delete_redirect" : "/cards/"}), 
-#                       (r'^collections/(?P<card_id>\d+)/$', 'card.card_views.manage_collections'), #check which collections hold this card
+                       (r'^collections/(?P<card_id>\d+)/$', 'card.card_views.manage_collections'), #check which collections hold this card
                        (r'^quiz/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', {'queryset': Card.objects.all(),
 																										'template_name': 'card_quiz.html',},
 																										'card_details'),
